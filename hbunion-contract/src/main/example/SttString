@@ -1,0 +1,49 @@
+import stt.Map;
+import stt.Arrays;
+Struct Stt_Struct {
+	String address;
+	Decimal amount;
+}
+Struct AllAmount {
+	//所有的用户
+	Map users = new Map();
+	//获得某个用户
+	func get(String address){
+		Stt_Struct stt_struct =users[address];
+		if(stt_struct == Nil){
+			Stt_Struct stt_struct0 = new Stt_Struct();
+			stt_struct = stt_struct0;
+			stt_struct.address = address;
+			stt_struct.amount = 0.0;
+			users.put(address, stt_struct);
+		}
+		return stt_struct;
+	}
+}
+Contract sttString{
+	AllAmount allAmount = new AllAmount();
+
+	//从调用方地址中转账方法。
+	func tranfer(String toAddress, Decimal amount){
+		Stt_Struct from = allAmount.get(CONTENT_CALL_ADDRESS);
+		Stt_Struct to = allAmount.get(toAddress);
+		if(from == Nil){
+			return;
+		}
+		if(from.amount >= amount){
+			from.amount = from.amount -amount;
+			to.amount = to.amount +amount;
+		}
+		return to.amount;
+	}
+
+	func add(String address, Decimal amount){
+		if(CONTENT_CALL_ADDRESS == CONTENT_OWNER_ADDRESS){
+			Stt_Struct ts = allAmount.get(address);
+			ts.amount = ts.amount +amount;
+		}
+	}
+	func query(String address){
+		return allAmount.get(address).amount;
+	}
+}

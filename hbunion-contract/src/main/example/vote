@@ -1,0 +1,36 @@
+import tok.Arrays;
+Struct VoteList{
+	Arrays list = new Arrays();
+}
+Struct VoteResult{
+  Integer a,b,c,d;//定义四个整型，分别用来保存各自的投票数
+}
+Contract Vote{
+  VoteList a = new VoteList();//选项A
+  VoteList b = new VoteList();//选项B
+  VoteList c = new VoteList();//选项C
+  VoteList d = new VoteList();//选项D
+  //投票的主要方法
+  func add(String item){
+    String myAddress = CONTENT_CALL_ADDRESS;
+    if('A' == item){
+    	a.list.add(myAddress);
+    }elif('B' == item){
+    	b.list.add(myAddress);
+    }elif('C' == item){
+    	c.list.add(myAddress);
+    }else{
+    	d.list.add(myAddress);
+    }
+      
+  }
+  
+  func queryA(){
+   	VoteResult vr = new VoteResult();
+   vr.a = _length(a.list);
+    vr.b = _length(b.list);
+    vr.c = _length(c.list);
+    vr.d = _length(d.list);
+    return vr;
+  }
+}

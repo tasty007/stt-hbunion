@@ -1,0 +1,41 @@
+﻿body{width:100%;margin:0 auto;font:12px/1.5 Micro Hei}
+body,html{width:100%;height:100%;min-width:800px!important;}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);outline:none;}
+h1,h2,h3,h4,strong,ul,p,b{font-weight:normal;margin:0;padding:0;}
+a{text-decoration:none;}
+li{list-style:none;}
+img{border:0}
+em,i{font-style:normal}
+u{text-decoration:none;}
+#container{width:100%;height:100%;overflow:hidden;min-width:800px;}
+	.indeleft{width:16%;overflow:hidden;height:100%;float:left;}
+		.indelea{width:100%;overflow:hidden;height:45px;}
+			.indelea p{width:20%;text-align:center;float:left;margin-top:10px}
+				.indelea p img{margin:10px;}
+		.indeleb{background:#F0F3FF;width:96;margin-left:4%;overflow:hidden;}
+			.indeleb h1{padding-left:10px;background:url(../img/jt.png) no-repeat left center;font-weight:bold;font-size:14px;cursor:pointer;height:26px;line-height:26px;}
+	.indecenter{width:60%;float:left;height:100%}
+		.indecenter .header{width:99.5%;overflow:hidden;margin-top:12px;}
+			.headera{float:left;width:5%;margin:10px 0 0 10px;}
+			.headcon{width:80%;overflow:hidden;float:left;}
+				.headcon h1{padding:0 20px 0 10px;height:33px;position:relative;background:#F0F3FF;font-size:14px;line-height:33px;font-weight:bold;display:inline-block}
+					.headcon h1 p{width:15px;position:absolute;right:-1px;top:1px;height:15px;background:url(../img/close.png) no-repeat;}
+			.headerb{float:right;width:5%;margin:10px 0 0 10px}
+		.indecont{width:100%;overflow:hidden;height:70%;background:#F0F3FF;}
+			.line{float:left;width:4%;padding:0 1% 0 0;text-align:right;font-size:14px;line-height:22px;height:100%;margin-top:15px}
+			.linecon{width:93%;float:left;font-size:13px;line-height:22px;background:#fff;margin-top:15px;height:100%;padding:0.2% 1%}
+		.indebtn{width:100%;height:20%}
+			.indebtna{line-height: 1.7em;font-family: monospace;background:url(../img/bg2.gif) no-repeat top center #9DBFC2;background-size:90px;padding: .4em 0;color: hsl(0, 0%, 0%);width:100%;height:100%;border-top: solid 2px hsla(202, 91%, 75%, .4);}
+	.inderight{width:24%;float:right;height:100%;overflow:hidden;background:#F0F3FF}
+		.rightbtn{width:100%;overflow:hidden;border-bottom:4px solid #F0F3FF;background:#fff;}
+			.rightbtn button{margin:10px 0 0 0;width:95px;height:35px;background:#F0F3FF;font-size:14px;border:0;cursor:pointer;}
+				.rightbtn button:hover{color:#FF0000}
+		.rightcon{width:98%;background:#fff;margin:10px 2%;padding-bottom:10px;height:533px;overflow-y:auto}
+			.rightcon div{width:93%;padding:0 3.5%;overflow:hidden;}
+				.rightcon div span{display:block;overflow:hidden;width:100%;font-size:13px;margin-top:10px;}
+					.rightcon div input.rightinpu{width:95%;border-radius:5px;height:32px;line-height:32px;font-size:13px;padding:0 2.5%;border:1px solid #dadada;margin:5px 0;}
+				.rightcon div p{width:100%;overflow:hidden;font-size:13px;}
+				.rightcon div em{display:block;width:100%;overflow:hidden;color:#666;font-size:13px;padding-top:5px;text-align:center;}
+					.rightcon div em i{font-weight:bold;font-size:14px;}
+			.rightcon h1{width:100%;font-size:14px;text-align:center;margin:20px 0 10px;}
+				.rightcon select{width:100%;overflow:hidden;padding:8px 0;border:1px solid #dadada;*padding:10px 0px;}

@@ -1,0 +1,67 @@
+import stt.Map;
+import stt.Arrays;
+Struct STT_Struct {
+	String address;
+	Decimal amount;
+}
+Struct AllAmount {
+	//所有的用户
+	Map users = new Map();
+	//获得某个用户
+	func get(String address){
+		STT_Struct stt_struct =users[address];
+		if(stt_struct == Nil){
+			STT_Struct stt_struct0 = new STT_Struct();
+			stt_struct = stt_struct0;
+			stt_struct.address = address;
+			stt_struct.amount = 0.0;
+			users.put(address, stt_struct);
+		}
+		return stt_struct;
+	}
+	
+	//添加某个用户
+	func add(String address, Decimal amount){
+		STT_Struct stt_struct = new STT_Struct();
+		stt_struct.address = address;
+		stt_struct.amount = amount;
+		users.put(address, stt_struct);
+	}
+}
+Contract PP{
+	AllAmount allAmount = new AllAmount();
+
+	//从调用方地址中转账方法。
+	func tranfer(String toAddress, Decimal amount){
+		STT_Struct from = allAmount.get(CONTENT_CALL_ADDRESS);
+		STT_Struct to = allAmount.get(toAddress);
+		if(from == Nil){
+			return;
+		}
+		if(from.amount >= amount){
+			from.amount = from.amount -amount;
+			to.amount = to.amount +amount;
+		}
+		return to.amount;
+	}
+	func add(String address, Decimal amount){
+		if(CONTENT_CALL_ADDRESS == CONTENT_OWNER_ADDRESS){
+			STT_Struct ts = allAmount.get(address);
+			ts.amount = ts.amount +amount;
+			return ts.amount;
+		}
+	}
+
+	func convert(String toAddress, Decimal amount){
+		if(toAddress == CONTENT_OWNER_ADDRESS){
+			Decimal newAmount = 0.1 * amount;
+			Decimal amount0 = _SYSCALL('TokString', 'tansfer', CONTENT_CALL_ADDRESS, newAmount);
+			tranfer(toAddress, amount);
+			return amount0;
+		}
+	}
+
+	func query(String address){
+		return allAmount.get(address).amount;
+	}
+}
